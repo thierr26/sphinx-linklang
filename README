@@ -1,0 +1,89 @@
+LinkLang (Sphinx extension)
+===========================
+
+
+General information
+-------------------
+
+Sphinx [1][2] is a documentation generator. One of the output format is HTML.
+Sphinx can also be used as a static website generator [3].
+
+LinkLang Sphinx extension makes it possible to indicate the language of an
+external link destination and renders this information in the HTML output
+(i.e. includes a "hreflang" attribute [4] in the "a" element [5]).
+
+
+Installation and Sphinx configuration
+-------------------------------------
+
+1. Create a subdirectory called "extensions" in your sphinx project (at the
+   same level as the "source" directory).
+
+2. Place the sphinx-linklang source tree in the "extensions" subdirectory.
+
+3. In the conf.py file of your sphinx project, make sure you have lines like:
+
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../extensions/sphinx-linklang/src'))
+
+4. In the conf.py file of your sphinx project, make sure "linklang" appears in
+   the "extensions" list:
+
+extensions = [
+    'linklang'
+]
+
+
+Language indication for an external link destination
+----------------------------------------------------
+
+LinkLang Sphinx extension provides the "linklang" role. It can be used to
+include an external link. Let's say you want a link to this URL:
+
+http://fictional.server.com
+
+With Sphinx, there are multiple ways of including a link. One of them is to
+just include the URL in the input file, another one is to include a link text
+and the URL:
+
+`Fictional server <http://fictional.server.com>`_
+
+(Note the angle brackets around the URL, the backticks around the whole link
+specification and the trailing underscore.)
+
+You can achieve something equivalent with the "linklang" role:
+
+:linklang:`http://fictional.server.com`
+
+or
+
+:linklang:`Link to fictional server <http://fictional.server.com>`
+
+(Note the absence of trailing underscore.)
+
+If you want to specify that the link destination is in English, then you just
+have to prefix the URL with the language code [6] followed by an hyphen.
+
+:linklang:`en-http://fictional.server.com`
+
+or
+
+:linklang:`Link to fictional server <en-http://fictional.server.com>`
+
+
+Links
+-----
+
+  1: https://en.wikipedia.org/wiki/Sphinx_(documentation_generator)
+  2: http://www.sphinx-doc.org/en/master/
+  3: https://nudgedelastic.band/2017/07/why-use-restructuredtext-and-sphinx-static-site-generator-for-maintaining-teaching-materials/
+  4: https://www.w3schools.com/Tags/att_a_hreflang.asp
+  5: https://www.w3schools.com/Tags/tag_a.asp
+  6: https://www.w3schools.com/Tags/ref_language_codes.asp
+
+
+==============================================================================
+Author: Thierry Rascle (thierr26@free.fr)
+
+MIT license. Please refer to the LICENSE file.
