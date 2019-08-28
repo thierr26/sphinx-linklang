@@ -1,10 +1,12 @@
+# Copyright (C) 2018-2019 Thierry Rascle <thierr26@free.fr>
+# MIT license. Please refer to the LICENSE file.
+
 from docutils import utils, nodes
 from sphinx.util.nodes import split_explicit_title
 import re
 
 lang_prefixed_web_url_re_obj = re.compile('([a-z]+-)*(https?://[^/].*)',
                                           re.IGNORECASE)
-# See https://www.w3schools.com/Tags/ref_language_codes.asp
 
 # -----------------------------------------------------------------------------
 
