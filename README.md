@@ -51,8 +51,9 @@ LinkLang as a Git submodule.
 
 Do as instructed above, but instead of the 2nd and 3rd steps, just do:
 ```bash
-git submodule add https://github.com/thierr26/sphinx-linklang.git extensions
-git submodule init
+git submodule add https://github.com/thierr26/sphinx-linklang.git \
+    extensions/sphinx-linklang
+git submodule init # Not needed with recent versions of Git.
 ```
 
 
